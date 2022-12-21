@@ -14,14 +14,14 @@
         </div>
         <div>
            <div><label>Senha</label></div>
-            <input type="password" name="password" placeholder="Senha">
+            <input type="password" name="password" id="password" onchange="validateFields()" placeholder="Senha">
            
         </div>
         <div>
             <button type="button" class="clear" id="recover-password-button" disabled = "true">Recuperar senha</button>
         </div>
         <div>
-            <button type="button" class="solid" disabled = "true">Entrar</button>
+            <button type="button" class="solid" id="login-button" disabled = "true">Entrar</button>
         </div>
         <div>
             
@@ -32,15 +32,7 @@
 
 <link rel="stylesheet" href="index.css"/>
 
-<script>
-    function validateFields(){
-        const email = document.getElementById("email").value;
-        if(!email){
-            document.getElementById('recover-password-button')
-        }
-    }
-
-</script>
+<script src="index.js"></script>
 
 </html>
 
