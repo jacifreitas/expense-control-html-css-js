@@ -9,11 +9,27 @@ function onChangeEmail(){
   }
 
   function login(){
-    window.location.href = "pages/home/home.html";
-    
+    showLoading();
+    firebase.auth().signInWithEmailAndPassword(form.email().value, form.password().value).then(response =>{
+        hideLoading();
+        window.location.href = "pages/home/home.html";
+    }).catch(error =>{
+      hideLoading();
+      alert(getErrorMessage(error));
+    });
+   
+  function getErrorMessage(error){
+    if(error.code == "auth/wrong-password"){
+      return "Usuário não encontrado";
+    }else{
+      return error.message;
+    }
+  }
+   
   }
 
   function register(){
+    
     window.location.href = "pages/register/register.html";
   }
 
